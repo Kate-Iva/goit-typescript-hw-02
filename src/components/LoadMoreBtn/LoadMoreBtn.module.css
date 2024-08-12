@@ -1,0 +1,10 @@
+.loadMoreBtn {
+    display: flex;
+    text-transform: capitalize;
+    margin: 30px auto 0;
+}
+
+.loadMoreBtn:hover,
+.loadMoreBtn:focus {
+background-color: rgb(214, 214, 214);
+}
