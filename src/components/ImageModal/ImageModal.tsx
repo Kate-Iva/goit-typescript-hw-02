@@ -1,8 +1,13 @@
+import React from 'react';
 import classes from './ImageModal.module.css';
-import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
+import { ImageModalProps } from './ImageModal.types';
 
-const ImageModal = ({ isOpen, dataImage, toggleModalOpen }) => {
+const ImageModal: React.FC<ImageModalProps> = ({
+  isOpen,
+  dataImage,
+  toggleModalOpen,
+}) => {
   return (
     <ReactModal
       isOpen={isOpen}
@@ -10,7 +15,7 @@ const ImageModal = ({ isOpen, dataImage, toggleModalOpen }) => {
       overlayClassName={classes.overlay}
       className={classes.imageModal}
       contentLabel="Image Modal"
-      ariaHideApp={false} 
+      ariaHideApp={false}
     >
       <img src={dataImage?.urls?.regular} alt={dataImage?.alt_description} />
     </ReactModal>
@@ -18,9 +23,3 @@ const ImageModal = ({ isOpen, dataImage, toggleModalOpen }) => {
 };
 
 export default ImageModal;
-
-ImageModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  dataImage: PropTypes.object.isRequired,
-  toggleModalOpen: PropTypes.func.isRequired,
-};

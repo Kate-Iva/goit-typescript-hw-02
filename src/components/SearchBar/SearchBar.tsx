@@ -1,12 +1,13 @@
+import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 import classes from './SearchBar.module.css';
-import PropTypes from 'prop-types';
+import { SearchProps } from './SearchBar.types';
 import toast, { Toaster } from 'react-hot-toast';
 
-const SearchBar = ({ onSearch, onPageNumber }) => {
-  const handleSubmit = (event) => {
+const SearchBar: React.FC<SearchProps> = ({ onSearch, onPageNumber }) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.target;
+    const form = event.target as HTMLFormElement;
     const searchImage = form.image.value.trim();
     if (searchImage.length === 0) {
       toast.error('Please fill in the search field', {
@@ -43,8 +44,3 @@ const SearchBar = ({ onSearch, onPageNumber }) => {
 };
 
 export default SearchBar;
-
-SearchBar.propTypes = {
-  onSearch: PropTypes.func.isRequired,
-  onPageNumber: PropTypes.func.isRequired,
-};

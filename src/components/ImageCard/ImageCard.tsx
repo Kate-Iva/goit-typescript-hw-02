@@ -1,7 +1,11 @@
 import classes from './ImageCard.module.css';
-import PropTypes from 'prop-types';
+import { ImageCardProps } from './ImageCard.types';
 
-const ImageCard = ({ imageItem, modalOpened, setDataImage }) => {
+const ImageCard: React.FC<ImageCardProps> = ({
+  imageItem,
+  modalOpened,
+  setDataImage,
+}) => {
   const handleImageClick = () => {
     setDataImage(imageItem);
     modalOpened();
@@ -19,9 +23,3 @@ const ImageCard = ({ imageItem, modalOpened, setDataImage }) => {
 };
 
 export default ImageCard;
-
-ImageCard.propTypes = {
-  imageItem: PropTypes.object.isRequired,
-  modalOpened: PropTypes.func.isRequired,
-  setDataImage: PropTypes.func.isRequired,
-};

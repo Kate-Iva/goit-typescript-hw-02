@@ -1,8 +1,13 @@
-import ImageCard from '../ImageCard/ImageCard';
+import React from 'react';
 import classes from './ImageGallery.module.css';
-import PropTypes from 'prop-types';
+import ImageCard from '../ImageCard/ImageCard';
+import { ImageGalleryProps } from './ImageGallery.types';
 
-const ImageGallery = ({ images, modalOpened, setDataImage }) => {
+const ImageGallery: React.FC<ImageGalleryProps> = ({
+  images,
+  modalOpened,
+  setDataImage,
+}) => {
   return (
     <ul className={classes.imageGallery}>
       {images.map((imageItem) => (
@@ -19,9 +24,3 @@ const ImageGallery = ({ images, modalOpened, setDataImage }) => {
 };
 
 export default ImageGallery;
-
-ImageGallery.propTypes = {
-  images: PropTypes.array.isRequired,
-  modalOpened: PropTypes.func.isRequired,
-  setDataImage: PropTypes.func.isRequired,
-};
